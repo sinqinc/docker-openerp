@@ -10,10 +10,9 @@
 # Exposes: 8080/openerp
 #
 
-FROM ubuntu:12.04
+FROM ubuntu:14.04
 MAINTAINER Joan Marc Carbo Arnau <jmcarbo@gmail.com>
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -q -y language-pack-en
 RUN update-locale LANG=en_US.UTF-8
@@ -33,7 +32,7 @@ RUN adduser --system --home=$project_root --group openerp && \
         python-simplejson python-tz python-unittest2 \
         python-vatnumber python-vobject python-webdav python-werkzeug \
         python-xlwt python-yaml python-zsi python-reportlab python-psycopg2 \
-        postgresql-client-9.1 python-cups python-django-auth-ldap git
+        postgresql-client python-cups python-django-auth-ldap git
 
 RUN apt-get -y install wget sudo bzip2
 

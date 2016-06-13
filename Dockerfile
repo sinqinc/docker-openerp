@@ -32,7 +32,7 @@ RUN adduser --system --home=$project_root --group openerp && \
         python-simplejson python-tz python-unittest2 \
         python-vatnumber python-vobject python-webdav python-werkzeug \
         python-xlwt python-yaml python-zsi python-reportlab python-psycopg2 \
-        postgresql-client python-cups python-django-auth-ldap git
+        postgresql-client python-cups python-django-auth-ldap python-lxml git
 
 RUN apt-get -y install wget sudo bzip2
 

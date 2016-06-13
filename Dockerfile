@@ -53,7 +53,7 @@ RUN cd / && \
     chown -R openerp: openerp7 && \
     ln -s openerp7/ openerp-server
 
-ADD startup.sh /startup.sh
+ADD startup.sh /usr/local/sbin/startup.sh
 
 CMD ["startup.sh"]
 EXPOSE 8069

@@ -46,8 +46,8 @@ RUN apt-get -y install wget sudo bzip2
 #    install wkhtmltoimage-amd64 /usr/bin/wkhtmltoimage 
 
 
-RUN wget http://jaist.dl.sourceforge.net/project/wkhtmltopdf/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb && \
-    dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb && \
+RUN wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.trusty_amd64.deb && \
+    dpkg -i wkhtmltox_0.12.5-1.trusty_amd64.deb && \
     cp /usr/local/bin/wkhtmltopdf /usr/bin && \
     cp /usr/local/bin/wkhtmltoimage /usr/bin
 

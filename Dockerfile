@@ -25,7 +25,7 @@ ENV project_root /home/openerp/
 ENV project_url http://nightly.openerp.com/7.0/nightly/src/openerp-7.0-latest.tar.gz
 
 RUN adduser --system --home=$project_root --group openerp && \
-    apt-get -y install libcups2-dev python-dateutil python-docutils python-feedparser \
+    apt-get -y install xfonts-75dpi xfonts-base libcups2-dev python-dateutil python-docutils python-feedparser \
         python-gdata python-jinja2 python-libxslt1 \
         python-mako python-mock python-openid python-psutil \
         python-pybabel python-pychart python-pydot python-pyparsing \

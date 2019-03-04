@@ -25,7 +25,7 @@ ENV project_root /home/openerp/
 ENV project_url http://nightly.openerp.com/7.0/nightly/src/openerp-7.0-latest.tar.gz
 
 RUN adduser --system --home=$project_root --group openerp && \
-    apt-get -y install python-dateutil python-docutils python-feedparser \
+    apt-get -y install libcups2-dev python-dateutil python-docutils python-feedparser \
         python-gdata python-jinja2 python-libxslt1 \
         python-mako python-mock python-openid python-psutil \
         python-pybabel python-pychart python-pydot python-pyparsing \
@@ -36,14 +36,21 @@ RUN adduser --system --home=$project_root --group openerp && \
 
 RUN apt-get -y install wget sudo bzip2
 
-RUN    wget https://wkhtmltopdf.googlecode.com/files/wkhtmltoimage-0.11.0_rc1-static-amd64.tar.bz2 && \
-    wget https://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2 && \
-    bzip2 -d wkhtmltoimage-0.11.0_rc1-static-amd64.tar.bz2 && \
-    tar xvf wkhtmltoimage-0.11.0_rc1-static-amd64.tar && \
-    bzip2 -d wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2 && \
-    tar xvf wkhtmltopdf-0.11.0_rc1-static-amd64.tar && \
-    install wkhtmltopdf-amd64 /usr/bin/wkhtmltopdf && \
-    install wkhtmltoimage-amd64 /usr/bin/wkhtmltoimage 
+#RUN    wget https://wkhtmltopdf.googlecode.com/files/wkhtmltoimage-0.11.0_rc1-static-amd64.tar.bz2 && \
+#    wget https://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2 && \
+#    bzip2 -d wkhtmltoimage-0.11.0_rc1-static-amd64.tar.bz2 && \
+#    tar xvf wkhtmltoimage-0.11.0_rc1-static-amd64.tar && \
+#    bzip2 -d wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2 && \
+#    tar xvf wkhtmltopdf-0.11.0_rc1-static-amd64.tar && \
+#    install wkhtmltopdf-amd64 /usr/bin/wkhtmltopdf && \
+#    install wkhtmltoimage-amd64 /usr/bin/wkhtmltoimage 
+
+
+RUN wget http://jaist.dl.sourceforge.net/project/wkhtmltopdf/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb && \
+    dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb && \
+    cp /usr/local/bin/wkhtmltopdf /usr/bin && \
+    cp /usr/local/bin/wkhtmltoimage /usr/bin
+
 
 #RUN useradd openerp
 RUN adduser openerp sudo

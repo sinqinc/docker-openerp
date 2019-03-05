@@ -55,10 +55,19 @@ RUN wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.trusty
 #RUN useradd openerp
 RUN adduser openerp sudo
 RUN echo openerp:vagrant | chpasswd
+#RUN cd / && \
+#    git clone https://github.com/jmcarbo/openerp7.git && \
+#    chown -R openerp: openerp7 && \
+#    ln -s openerp7/ openerp-server
+
 RUN cd / && \
-    git clone https://github.com/jmcarbo/openerp7.git && \
+    wget http://nightly.openerp.com/7.0/nightly/src/openerp-7.0-latest.tar.gz && \
+    tar -zxvf openerp-7.0-latest.tar.gz && \
+    rm -f openerp-7.0-latest.tar.gz && \
+    mv openerp-7.0* openerp7 && \
     chown -R openerp: openerp7 && \
     ln -s openerp7/ openerp-server
+    
 
 ADD startup.sh /usr/local/sbin/startup.sh
 

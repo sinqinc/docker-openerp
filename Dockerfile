@@ -61,9 +61,9 @@ RUN echo openerp:vagrant | chpasswd
 #    ln -s openerp7/ openerp-server
 
 RUN cd / && \
-    wget http://nightly.openerp.com/7.0/nightly/src/openerp-7.0-latest.tar.gz && \
-    tar -zxvf openerp-7.0-latest.tar.gz && \
-    rm -f openerp-7.0-latest.tar.gz && \
+    wget http://nightly.odoo.com/7.0/nightly/src/openerp_7.0.latest.tar.gz && \
+    tar -zxvf openerp_7.0.latest.tar.gz && \
+    rm -f openerp_7.0.latest.tar.gz && \
     mv openerp-7.0* openerp7 && \
     chown -R openerp: openerp7 && \
     ln -s openerp7/ openerp-server
